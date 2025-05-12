@@ -18,11 +18,13 @@ body {
     text-align: center;
 }
 
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
+h1 {
+    margin: 5px;
 }
 
+.logo {
+    width: 180px;
+}
 
 .input-area {
     margin-bottom: 20px;
@@ -68,4 +70,10 @@ input:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
+}
+
+@media (max-width: 768px) {
+    button {
+        margin-top: 10px;
+    }
 }

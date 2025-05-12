@@ -36,3 +36,5 @@ function sortearNome() {
 
     document.getElementById('resultado').textContent = `Sorteado: ${selecionandoNome}`;
 }
+
+
