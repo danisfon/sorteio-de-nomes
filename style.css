@@ -2,19 +2,18 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #252424;
+    background-color: #ffffff;
     margin: 0;
     padding: 20px;
-    color: #fff;
+    color: #1f1e1e;
 }
 
 .container {
     max-width: 500px;
     margin: 40px auto;
-    background-color: #444444;
+    background-color: #e1e1e1;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -54,7 +53,7 @@ ul {
 }
 
 li {
-    background: #726969;
+    background: #fff;
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
@@ -62,7 +61,7 @@ li {
 
 #resultado {
     margin-top: 20px;
-    color: #ffffff;
+    color: #000000;
     font-size: 24px;
 }
 
