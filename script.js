@@ -67,7 +67,7 @@ function sortearNome() {
 
         Swal.fire({
             icon: 'success',
-            title: 'Nome sorteado!',
+            title: 'Número sorteado!',
             text: `Sorteado: ${selecionandoNome}`
         });
 
