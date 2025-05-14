@@ -4,19 +4,34 @@ function adicionarNome() {
     const nome = document.getElementById('nome');
     const nomeValido = nome.value.trim();
 
-    if (nomeValido) {
-        nomes.push(nomeValido);
-        atualizarLista();
-        nome.value = '';
-        nome.focus();
-    } else {
+    if (!nomeValido) {
         Swal.fire({
             icon: 'warning',
-            title: 'Oops...',
-            text: 'Digite um número!'
+            title: 'Campo vazio',
+            text: 'Digite um nome válido!'
         });
+        return;
     }
+
+    const existe = nomes.some(n => n.toLowerCase() === nomeValido.toLowerCase());
+
+    if (existe) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Número duplicado!',
+            text: `"${nomeValido}" já foi adicionado à lista!`
+        });
+        nome.value = '';
+        nome.focus();
+        return;
+    }
+
+    nomes.push(nomeValido);
+    atualizarLista();
+    nome.value = '';
+    nome.focus();
 }
+
 
 function atualizarLista() {
     const listaNome = document.getElementById('listaNome');
@@ -127,8 +142,6 @@ function sortearNome() {
                 }, 50);
             }
         });
-
-        document.getElementById('resultado').textContent = `Sorteado: ${selecionandoNome}`;
     }, 10000);
 }
 
