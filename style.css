@@ -57,6 +57,19 @@ li {
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
+    position: relative;
+}
+
+.btn-remover {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #919191;
+    font-size: 18px;
 }
 
 #resultado {

@@ -10,7 +10,11 @@ function adicionarNome() {
         nome.value = '';
         nome.focus();
     } else {
-        alert('Digite um nome válido!');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Digite um número!'
+        });
     }
 }
 
@@ -21,20 +25,55 @@ function atualizarLista() {
     nomes.forEach((nomeValido, index) => {
         const li = document.createElement('li');
         li.textContent = nomeValido;
+
+        const botaoRemover = document.createElement('button');
+        botaoRemover.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+        botaoRemover.classList.add('btn-remover');
+        botaoRemover.onclick = () => {
+            nomes.splice(index, 1);
+            atualizarLista();
+        };
+
+        li.appendChild(botaoRemover);
         listaNome.appendChild(li);
     });
 }
 
+
+
 function sortearNome() {
     if (nomes.length === 0) {
-        alert('Adicione ao menos um nome antes de sortear!');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Adicione ao menos um nome antes de sortear!'
+        });
         return;
     }
 
-    const nomeAleatorio = Math.floor(Math.random() * nomes.length);
-    const selecionandoNome = nomes[nomeAleatorio];
+    Swal.fire({
+        title: 'Sorteando...',
+        html: 'Aguarde um momento',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
 
-    document.getElementById('resultado').textContent = `Sorteado: ${selecionandoNome}`;
+    setTimeout(() => {
+        const nomeAleatorio = Math.floor(Math.random() * nomes.length);
+        const selecionandoNome = nomes[nomeAleatorio];
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Nome sorteado!',
+            text: `Sorteado: ${selecionandoNome}`
+        });
+
+        document.getElementById('resultado').textContent = `Sorteado: ${selecionandoNome}`;
+    }, 10000);
 }
+
 
 
