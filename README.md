@@ -1,6 +1,6 @@
 # Sorteio
 
-Esse site foi desenvolvido com o intuito de realizar sorteio de nomes
+Esse site foi desenvolvido com o intuito de realizar sorteio de números
 
 ## Tecnologias Utilizadas
 
