@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <title>Sorteio</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,19 +15,20 @@
   <h1>Sorteio de números</h1>
 
   <div class="input-area">
-    <label for="nome"></label>
-    <input type="text" id="nome" placeholder="Digite um nome" required>
-    <button onclick="adicionarNome()">Adicionar</button>
+    <label for="numero"></label>
+    <input type="text" id="numero" placeholder="Digite um número" required>
+    <button onclick="adicionarNumero()">Adicionar</button>
   </div>
 
-  <button onclick="sortearNome()">Sortear</button>
+  <button onclick="sortearNumero()">Sortear</button>
 <!--  <h2 id="resultado"></h2>-->
 
   <h3>Lista dos números:</h3>
-  <ul id="listaNome"></ul>
+  <ul id="listaNumero"></ul>
 
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

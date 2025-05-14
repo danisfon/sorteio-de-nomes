@@ -1,68 +1,68 @@
-let nomes = [];
+let numeros = [];
 
-function adicionarNome() {
-    const nome = document.getElementById('nome');
-    const nomeValido = nome.value.trim();
+function adicionarNumero() {
+    const numero = document.getElementById('numero');
+    const numeroValido = numero.value.trim();
 
-    if (!nomeValido) {
+    if (!numeroValido) {
         Swal.fire({
             icon: 'warning',
             title: 'Campo vazio',
-            text: 'Digite um nome válido!'
+            text: 'Digite um número válido!'
         });
         return;
     }
 
-    const existe = nomes.some(n => n.toLowerCase() === nomeValido.toLowerCase());
+    const existe = numeros.some(n => n.toLowerCase() === numeroValido.toLowerCase());
 
     if (existe) {
         Swal.fire({
             icon: 'error',
             title: 'Número duplicado!',
-            text: `"${nomeValido}" já foi adicionado à lista!`
+            text: `"${numeroValido}" já foi adicionado à lista!`
         });
-        nome.value = '';
-        nome.focus();
+        numero.value = '';
+        numero.focus();
         return;
     }
 
-    nomes.push(nomeValido);
+    numeros.push(numeroValido);
     atualizarLista();
-    nome.value = '';
-    nome.focus();
+    numero.value = '';
+    numero.focus();
 }
 
 
 function atualizarLista() {
-    const listaNome = document.getElementById('listaNome');
-    listaNome.innerHTML = '';
+    const listaNumero = document.getElementById('listaNumero');
+    listaNumero.innerHTML = '';
 
-    nomes.forEach((nomeValido, index) => {
+    numeros.forEach((numeroValido, index) => {
         const li = document.createElement('li');
-        li.textContent = nomeValido;
+        li.textContent = numeroValido;
 
         const botaoRemover = document.createElement('button');
         botaoRemover.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-
         botaoRemover.classList.add('btn-remover');
+
         botaoRemover.onclick = () => {
-            nomes.splice(index, 1);
+            numeros.splice(index, 1);
             atualizarLista();
         };
 
         li.appendChild(botaoRemover);
-        listaNome.appendChild(li);
+        listaNumero.appendChild(li);
     });
 }
 
 
 
-// function sortearNome() {
-//     if (nomes.length === 0) {
+// function sortearNumero() {
+//     if (numeros.length === 0) {
 //         Swal.fire({
 //             icon: 'warning',
 //             title: 'Oops...',
-//             text: 'Adicione ao menos um nome antes de sortear!'
+//             text: 'Adicione ao menos um numero antes de sortear!'
 //         });
 //         return;
 //     }
@@ -77,27 +77,27 @@ function atualizarLista() {
 //     });
 //
 //     setTimeout(() => {
-//         const nomeAleatorio = Math.floor(Math.random() * nomes.length);
-//         const selecionandoNome = nomes[nomeAleatorio];
+//         const numeroAleatorio = Math.floor(Math.random() * numeros.length);
+//         const selecionandoNumero = numeros[numeroAleatorio];
 //
 //         Swal.fire({
 //             icon: 'success',
 //             title: 'Número sorteado!',
-//             text: `Sorteado: ${selecionandoNome}`
+//             text: `Sorteado: ${selecionandoNumero}`
 //         });
 //
-//         document.getElementById('resultado').textContent = `Sorteado: ${selecionandoNome}`;
+//         document.getElementById('resultado').textContent = `Sorteado: ${selecionandoNumero}`;
 //     }, 10000);
 // }
 
 
 
-function sortearNome() {
-    if (nomes.length === 0) {
+function sortearNumero() {
+    if (numeros.length === 0) {
         Swal.fire({
             icon: 'warning',
             title: 'Oops...',
-            text: 'Adicione ao menos um nome antes de sortear!'
+            text: 'Adicione ao menos um numero antes de sortear!'
         });
         return;
     }
@@ -112,12 +112,12 @@ function sortearNome() {
     });
 
     setTimeout(() => {
-        const nomeAleatorio = Math.floor(Math.random() * nomes.length);
-        const selecionandoNome = nomes[nomeAleatorio];
+        const numeroAleatorio = Math.floor(Math.random() * numeros.length);
+        const selecionandoNumero = numeros[numeroAleatorio];
 
         Swal.fire({
             title: 'Número sorteado!',
-            text: `Sorteado: ${selecionandoNome}`,
+            text: `Sorteado: ${selecionandoNumero}`,
             didOpen: () => {
                 const myConfetti = confetti.create(null, {
                     resize: true,
